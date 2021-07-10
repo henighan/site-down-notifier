@@ -16,7 +16,7 @@ def text_me(message: str):
     assert response['ResponseMetadata']['HTTPStatusCode'] == 200, "SMS Failed to send"
 
 
-def main():
+def handler(event, context):
     urls_to_check = [
         "https://tomhenighan.com",
         "https://www.havewemadeagiyet.com",
@@ -37,4 +37,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    handler()
