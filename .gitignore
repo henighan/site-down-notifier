@@ -5,3 +5,4 @@
 *mykey*
 .venv/*
 package/*
+*.zip
