@@ -19,7 +19,13 @@ def text_me(message: str):
 def handler(event=None, context=None):
     urls_to_check = [
         "https://tomhenighan.com",
+        "https://www.tomhenighan.com",
+        "http://tomhenighan.com",
+        "http://www.tomhenighan.com",
+        "https://havewemadeagiyet.com",
         "https://www.havewemadeagiyet.com",
+        "http://havewemadeagiyet.com",
+        "http://www.havewemadeagiyet.com",
         ]
     down_url_statuscodes = dict()
     for url in urls_to_check:
