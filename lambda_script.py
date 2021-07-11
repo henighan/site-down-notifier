@@ -22,24 +22,26 @@ def handler(event=None, context=None):
         "https://www.tomhenighan.com",
         "http://tomhenighan.com",
         "http://www.tomhenighan.com",
-        "https://havewemadeagiyet.com",
+        # "https://havewemadeagiyet.com", # doesnt actually work because of dirty hack I used to get google domain to have alias behavior :(
         "https://www.havewemadeagiyet.com",
         "http://havewemadeagiyet.com",
         "http://www.havewemadeagiyet.com",
         ]
     down_url_statuscodes = dict()
     for url in urls_to_check:
-        statuscode = requests.get(url).status_code
-        if statuscode != 200:
-            down_url_statuscodes[url] = statuscode
+        try:
+            statuscode = requests.get(url).status_code
+            assert statuscode == 200
+        except Exception as e:
+            down_url_statuscodes[url] = str(e)
     if down_url_statuscodes:
-        msg = "The following sites appear to be down:\n{str(down_url_statuscodes)}"
-        print(msg)
+        msg = f"The following sites appear to be down:\n{str(down_url_statuscodes)}"
         text_me(msg)
     else:
         msg = "All sites appear to be up and running"
-        print(msg)
+        # TODO: remove after a few days once we're confident this works
         text_me(msg)
+    print(msg)
     return msg
 
 
