@@ -7,5 +7,6 @@ variable "PHONE_NUMBER" {
 }
 
 variable "LAMBDA_CRON_EXPRESSION" {
-  default = "cron(0/5 * ? * * *)"
+  # default = "cron(0/1 * ? * * *)" # for testing: once every minute
+  default = "cron(0 21 ? * * *)"
 }
