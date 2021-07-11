@@ -4,7 +4,7 @@ import requests
 
 
 def text_me(message: str):
-    phone_number = os.getenv("PHONENUMBER")
+    phone_number = os.getenv("PHONE_NUMBER")
     client = boto3.client(
         "sns",
         region_name="us-east-1"
