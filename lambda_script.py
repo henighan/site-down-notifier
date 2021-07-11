@@ -34,6 +34,7 @@ def handler(event=None, context=None):
         msg = "All sites appear to be up and running"
         print(msg)
         text_me(msg)
+    return msg
 
 
 if __name__ == "__main__":
