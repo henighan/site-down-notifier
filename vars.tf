@@ -3,5 +3,5 @@ variable "AWS_REGION" {
 }
 
 variable "PHONE_NUMBER" {
-  type string
+  type = string
 }
