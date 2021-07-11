@@ -6,7 +6,9 @@ I have a couple small websites (eg [havewemadeagiyet.com](https://www.havewemade
 
 This is meant to be simple, and doesnt check latency or global availability.
 
-## Short Description
+I'm sure there are much better off-the-shelf tools I could have used here instead. But I deicded to use this as an opportunity to play with terraform.
+
+## How it Works
 
 This uses a [lambda function](https://aws.amazon.com/lambda/) which makes get-requests to my websites and asserts that the returncode is 200. If not, it uses [SNS](https://aws.amazon.com/sns/) to notify me via text. The lambda function is triggered every 24 hours using [eventbridge](https://aws.amazon.com/eventbridge/). Most of the cloud infra is managed using [terraform](https://www.terraform.io/), though I had to set up a few SNS things via the aws console.
 
@@ -14,7 +16,9 @@ This uses a [lambda function](https://aws.amazon.com/lambda/) which makes get-re
 
 ### 0. Prerequisites
 You will need:
+
 a. An aws account
+
 b. Terraform installed with admin priviliges on your aws account (including the ability to create iam roles and policies).
 
 ### 1. Purchase origination Phone Number
@@ -27,7 +31,7 @@ In the aws console, navigate to SNS->"SMS and voice" in the SNS [here](https://c
 
 Note I'm keeping my account in the "SMS Sandbox", as I have no need for sending notifications to anyone but myself.
 
-### 3. Edit [lambda_script.py][./lambda_script.py] to check _your_ websites
+### 3. Edit lambda_script.py to check _your_ websites
 Find the following list of urls and replace with the urls you'd like to check:
 ```python
     urls_to_check = [
