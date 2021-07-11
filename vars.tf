@@ -5,3 +5,7 @@ variable "AWS_REGION" {
 variable "PHONE_NUMBER" {
   type = string
 }
+
+variable "LAMBDA_CRON_EXPRESSION" {
+  default = "cron(0/5 * ? * * *)"
+}
