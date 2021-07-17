@@ -39,8 +39,6 @@ def handler(event=None, context=None):
         text_me(msg)
     else:
         msg = "All sites appear to be up and running"
-        # TODO: remove after a few days once we're confident this works
-        text_me(msg)
     print(msg)
     return msg
 
