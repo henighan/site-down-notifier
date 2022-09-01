@@ -1,5 +1,7 @@
 # Site Down Notifier
 
+_edit: As of September 2022, toll-free numbers now require registration, and is required for this to work. To update, follow [these steps](https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-tfn-register.html)._
+
 Function to periodically check that my websites are up, and sends me a text-message if not.
 
 I have a couple small websites (eg [havewemadeagiyet.com](https://www.havewemadeagiyet.com) and [tomhenighan.com](https://tomhenighan.com)). Recently one of them went down for a silly reason and I didn't realize for a while. If that happens again, this should send me a text message so I can fix it.
@@ -22,7 +24,7 @@ a. An aws account
 b. Terraform installed with admin priviliges on your aws account (including the ability to create iam roles and policies).
 
 ### 1. Purchase origination Phone Number
-To be able to text my US number, I needed to purchase an [origination phone number](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-originating-identities.html). I went [here](https://console.aws.amazon.com/pinpoint/home?region=us-east-1#/sms-account-settings/requestLongCode) on the pinpoint console and purchased a transactional, toll-free, sms-only phone number. This annoyingly costs $2/month.
+To be able to text my US number, I needed to purchase an [origination phone number](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-originating-identities.html). I went [here](https://console.aws.amazon.com/pinpoint/home?region=us-east-1#/sms-account-settings/requestLongCode) on the pinpoint console and purchased a transactional, toll-free, sms-only phone number. This annoyingly costs $2/month. You will also need to regieser this number by following [these steps](https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-tfn-register.html).
 
 Because of the above cost, I also tried using aws SES instead, but all the emails I sent to myself went straight to spam (unsurprising). This was also a sub-optimal solution for me because I rarely check email.
 
